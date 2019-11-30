@@ -5,6 +5,7 @@ import Box from '@material-ui/core/Box';
 import logo from './img/logo.svg'
 import './Header.css';
 
+// Header is the header component of the app.
 class Header extends Component {
   render() {
     return (

@@ -1,4 +1,5 @@
-// Imports
+// main.js defines the electron window.
+
 const { app, BrowserWindow } = require('electron');
 const path = require('path');
 
@@ -9,18 +10,15 @@ let mainWindow;
 function createWindow() {
     // Create the browser window.
     mainWindow = new BrowserWindow({
-        width: 800,
-        height: 600,
-        webPreferences: {
-            preload: path.join(__dirname, 'preload.js')
-        }
+        width: 1025,
+        height: 680
     });
 
     // Load the react app into the window
     mainWindow.loadURL('http://localhost:3000');
 
     // Open the DevTools
-    // mainWindow.webContents.openDevTools()
+    mainWindow.webContents.openDevTools()
 
     // Kill the window when it is closed
     mainWindow.on('closed', function () {
