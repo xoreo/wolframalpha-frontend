@@ -5,6 +5,8 @@
     "main": "src/main.js",
 
     "scripts": {
+        "electron": "electron .",
+
         "start": "react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test --env=jsdom",
