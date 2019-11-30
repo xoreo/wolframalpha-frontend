@@ -5,6 +5,7 @@ import Paper from '@material-ui/core/Paper';
 
 import Header from './Header'
 import History from './History'
+import MainArea from './MainArea'
 import './App.css';
 
 // App is the main component of the entire app.
@@ -19,7 +20,7 @@ class App extends Component {
                         <History />
                     </Grid>
                     <Grid item xs={10}>
-                        <Paper className="App-border">Search bar</Paper>
+                        <MainArea />
                     </Grid>
                 </Grid>
             </div>
