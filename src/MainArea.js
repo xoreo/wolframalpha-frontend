@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import Container from '@material-ui/core/Container';
 
-import SearchBar from './SearchBar';
+import Input from './Input';
 import Results from './Results';
 
 import './MainArea.css';
@@ -12,7 +12,7 @@ class MainArea extends Component {
     render() {
         return (
             <Container>
-                <SearchBar />
+                <Input />
                 <Results />
             </Container>
         )

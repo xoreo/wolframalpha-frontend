@@ -14,4 +14,4 @@ class Results extends Component {
     };
 }
 
-export default MainArea;
+export default Results;
