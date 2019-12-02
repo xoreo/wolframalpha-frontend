@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
 
 import Header from './Header'
 import History from './History'
 import MainArea from './MainArea'
+import Test from './Test'
 import './App.css';
 
 // App is the main component of the entire app.
 class App extends Component {
     render() {
         return (
-            
             <div className="App">
+                <Test />
                 <Header />
                 <Grid container spacing={2}>
                     <Grid item xs>
