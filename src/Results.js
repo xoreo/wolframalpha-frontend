@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
-import Container from '@material-ui/core/Container';
+import { Container, Paper, Typography } from '@material-ui/core';
+import PropTypes from 'prop-types';
 
 import './Results.css';
 
@@ -9,9 +10,18 @@ class Results extends Component {
     render() {
         return (
             <Container>
+                <Paper>
+                    <Typography component="p">
+                        {this.props.results}
+                    </Typography>
+                </Paper>
             </Container>
         )
     };
+}
+
+Results.propTypes = {
+    results: PropTypes.array
 }
 
 export default Results;

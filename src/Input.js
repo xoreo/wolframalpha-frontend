@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import { TextField, Button, Container } from '@material-ui/core';
+import PropTypes from 'prop-types';
 import { ToastContainer, toast } from 'react-toastify';
 
 import net from './net/net'
@@ -23,6 +24,7 @@ export default class Input extends Component {
         // Declare the methods
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.reportResults = this.props.reportResults.bind(this);
         
     }
     
@@ -49,18 +51,20 @@ export default class Input extends Component {
             }
         ).then(res => res.json()) // Handle the Promise
         .then(res => {
-          if (res.error) {
-            // Check no error
-            this.errorAlert(res.error);
-            return;
-          }
+            if (res.error) {
+                // Check no error
+                this.errorAlert(res.error);
+                return;
+            }
 
-          // Update the state with the response
-          this.setState({
-            response: res.search_result,
-            responseJSON: JSON.parse(res.search_result)
-          });
+            // Update the state with the response
+            this.setState({
+                response: res.search_result,
+                responseJSON: JSON.parse(res.search_result)
+            });
 
+            // Send the results up to the parent
+            this.reportResults(this.state.responseJSON);
         });
 
         event.preventDefault(); // Prevent the page from reloading
@@ -81,4 +85,8 @@ export default class Input extends Component {
             </Container>
         )
     };
+}
+
+Input.propTypes = {
+    reportResults: PropTypes.func
 }
