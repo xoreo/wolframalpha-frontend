@@ -21,23 +21,18 @@ class MainArea extends Component {
 
     reportResults(res) {
         this.setState({
-            results: JSON.stringify(res)
+            results: res
         });
-        console.log(this.state.results);
-        alert("changed state to " + JSON.stringify(res))
     }
 
     render() {
         return (
             <Container>
                 <Input reportResults={this.reportResults} />
-                <p>{this.state.results}</p>
+                <Results results={this.state.results} />
             </Container>
         )
     };
 }
-
-{/* <Typography component="p">  </Typography> */}
-// {/* <Results results={this.state.results} /> */}
 
 export default MainArea;

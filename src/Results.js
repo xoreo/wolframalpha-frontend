@@ -7,21 +7,33 @@ import './Results.css';
 
 // Results is the component containing the search results
 class Results extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            results: this.props.results
+        }
+    }
+
+    createResults() {
+        <Paper>
+            <Typography component="p">
+                {this.props.results}
+            </Typography>
+        </Paper>
+    }
+
     render() {
         return (
             <Container>
-                <Paper>
-                    <Typography component="p">
-                        {this.props.results}
-                    </Typography>
-                </Paper>
+                {this.createResults}
             </Container>
         )
     };
 }
 
 Results.propTypes = {
-    results: PropTypes.array
+    results: PropTypes.arrayOf(PropTypes.object)
 }
 
 export default Results;

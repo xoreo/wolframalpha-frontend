@@ -17,15 +17,12 @@ export default class Input extends Component {
         // Initialize the state values
         this.state = {
             search: '',
-            response: '',
-            responseJSON: {}
+            response: {},
         };
 
         // Declare the methods
         this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.reportResults = this.props.reportResults.bind(this);
-        
+        this.handleSubmit = this.handleSubmit.bind(this);   
     }
     
     // handleChange is executed when the textbox is changed.
@@ -59,12 +56,11 @@ export default class Input extends Component {
 
             // Update the state with the response
             this.setState({
-                response: res.search_result,
-                responseJSON: JSON.parse(res.search_result)
+                response: JSON.parse(res.search_result)
             });
 
             // Send the results up to the parent
-            this.reportResults(this.state.responseJSON);
+            this.props.reportResults(this.state.responseJSON);
         });
 
         event.preventDefault(); // Prevent the page from reloading
@@ -78,8 +74,6 @@ export default class Input extends Component {
                         onChange={this.handleChange} value={this.state.search} />
                     <Button variant="outlined" color="primary"
                         type="submit">Search</Button>
-                    <TextField label="TEST RESPONSE" variant="outlined"
-                        value={this.state.response} />
                 </form>
                 <ToastContainer />
             </Container>
