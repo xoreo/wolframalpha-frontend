@@ -14,16 +14,22 @@ class Results extends Component {
     // createResults returns a list of Result components from the results.
     createResults() {
         let results = [];
-        console.log(results);
+        console.log(JSON.stringify(this.props.results));
 
         for (let i = 0; i < this.props.results.length; i++) {
+            let result = this.props.results[i];
+            console.log("result: \n\n" + JSON.stringify(result));
             // Get the url and label
-            let url = results[i]['url'];
-            let label = results[i]['label'];
+            let url = result['url'];
+            let label = result['label'];
+            console.log(`\n\nurl: ${url}\nlabel: ${label}\n\n`)
 
             // Make a new Result component with the data 
             results.push(
-                <Result label={label} url={url} />
+                {
+                    label: label,
+                    url: url
+                }
             );
         }
         
@@ -36,7 +42,9 @@ class Results extends Component {
         return (
             <Container>
                 {/* <Result result={{url: "hiurl", label:"hi"}}/> */}
-                {this.createResults}
+                {this.createResults().map(
+                    result => <Result label={result['label']} url={result['url']} />
+                )}
             </Container>
         )
     };
