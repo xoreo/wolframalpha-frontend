@@ -16,9 +16,11 @@ class MainArea extends Component {
             results: []
         }
 
+        // Bind to this so that the child can call reportResults.
         this.reportResults = this.reportResults.bind(this);
     }
 
+    // reportResults sets the state to the results from the Input component.
     reportResults(res) {
         this.setState({
             results: res

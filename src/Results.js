@@ -7,23 +7,26 @@ import './Results.css';
 
 // Results is the component containing the search results
 class Results extends Component {
-    constructor(props) {
-        super(props);
+    // constructor(props) {
+    //     super(props);
+    // }
 
-        this.state = {
-            results: this.props.results
-        }
-    }
-
+    // createResults returns a list of Result components from the results.
     createResults() {
-        alert(this.state.results);
         let results = [];
-        for (let result in this.state.results) {
+        console.log(results);
+
+        for (let i = 0; i < this.props.results.length; i++) {
+            // Get the url and label
+            let url = results[i]['url'];
+            let label = results[i]['label'];
+
+            // Make a new Result component with the data 
             results.push(
-                // <Result result={result} />
-                // {result}
+                <Result label={label} url={url} />
             );
         }
+        
         console.log(results);
 
         return results;
@@ -32,8 +35,8 @@ class Results extends Component {
     render() {
         return (
             <Container>
-                <Result result={{url: "hiurl", label:"hi"}}/>
-                {/* {this.createResults} */}
+                {/* <Result result={{url: "hiurl", label:"hi"}}/> */}
+                {this.createResults}
             </Container>
         )
     };

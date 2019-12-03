@@ -60,7 +60,7 @@ export default class Input extends Component {
             });
 
             // Send the results up to the parent
-            this.props.reportResults(this.state.responseJSON);
+            this.props.reportResults(this.state.response);
         });
 
         event.preventDefault(); // Prevent the page from reloading

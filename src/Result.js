@@ -9,19 +9,14 @@ import './Result.css';
 class Result extends Component {
     constructor(props) {
         super(props);
-
-        this.state = {
-            label: this.props.result.label,
-            url: this.props.result.url,
-        }
     }
 
     render() {
         return (
             <Container>
                 <Paper>
-                    <Typography variant="h3">LABEL: {this.state.label}</Typography>
-                    <Typography variant="h3">URL: {this.state.url}</Typography>
+                    <Typography variant="h5">LABEL: {this.props.label}</Typography>
+                    <Typography variant="h5">URL: {this.props.url}</Typography>
                     {/* <img src={this.state.url} /> */}
                 </Paper>
             </Container>
@@ -30,7 +25,8 @@ class Result extends Component {
 }
 
 Result.propTypes = {
-    result: PropTypes.object
+    label: PropTypes.object,
+    url: PropTypes.object
 }
 
 export default Result;
