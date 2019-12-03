@@ -14,16 +14,17 @@ class Result extends Component {
     render() {
         return (
             <Container>
-                <Paper>
-                    <Typography variant="h5">LABEL: {this.props.label}</Typography>
-                    <Typography variant="h5">URL: {this.props.url}</Typography>
-                    {/* <img src={this.state.url} /> */}
+                <Paper className="Result">
+                    <Typography variant="p">{this.props.label}</Typography>
+                    <br />
+                    <img src={this.props.url} />
                 </Paper>
             </Container>
         )
     };
 }
 
+// Set prop types
 Result.propTypes = {
     label: PropTypes.object,
     url: PropTypes.object

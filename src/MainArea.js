@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Container, Typography } from '@material-ui/core';
+import { Container } from '@material-ui/core';
 
 import Input from './Input';
 import Results from './Results';

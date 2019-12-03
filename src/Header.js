@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import Box from '@material-ui/core/Box';
 
-import logo from './img/logo.svg'
+import logo from './img/logo.png'
 import './Header.css';
 
 // Header is the header component of the app.

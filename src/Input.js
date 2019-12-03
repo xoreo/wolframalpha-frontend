@@ -70,7 +70,7 @@ export default class Input extends Component {
         return (
             <Container>
                 <form noValidate autoComplete="off" onSubmit={this.handleSubmit}>
-                    <TextField label="Search box here" variant="outlined"
+                    <TextField label="Search" variant="outlined"
                         onChange={this.handleChange} value={this.state.search} />
                     <Button variant="outlined" color="primary"
                         type="submit">Search</Button>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container } from '@material-ui/core';
+import { Container, Typography } from '@material-ui/core';
 import PropTypes from 'prop-types';
 
 import Result from './Result'
@@ -7,22 +7,18 @@ import './Results.css';
 
 // Results is the component containing the search results
 class Results extends Component {
-    // constructor(props) {
-    //     super(props);
-    // }
-
-    // createResults returns a list of Result components from the results.
+    // createResults returns a list of data necessary to form
+    // Result components from the results.
     createResults() {
         let results = [];
-        console.log(JSON.stringify(this.props.results));
 
+        // Loop through all results
         for (let i = 0; i < this.props.results.length; i++) {
-            let result = this.props.results[i];
-            console.log("result: \n\n" + JSON.stringify(result));
+            let result = this.props.results[i]; // Get the result
+
             // Get the url and label
             let url = result['url'];
             let label = result['label'];
-            console.log(`\n\nurl: ${url}\nlabel: ${label}\n\n`)
 
             // Make a new Result component with the data 
             results.push(
@@ -32,8 +28,6 @@ class Results extends Component {
                 }
             );
         }
-        
-        console.log(results);
 
         return results;
     }
@@ -41,15 +35,20 @@ class Results extends Component {
     render() {
         return (
             <Container>
-                {/* <Result result={{url: "hiurl", label:"hi"}}/> */}
-                {this.createResults().map(
-                    result => <Result label={result['label']} url={result['url']} />
-                )}
+                <Typography type="h5">Results</Typography>
+                {
+                    // Render the Result components
+                    this.createResults()
+                    .map(
+                        result => <Result label={result['label']} url={result['url']} />
+                    )
+                }
             </Container>
         )
     };
 }
 
+// Set prop types
 Results.propTypes = {
     results: PropTypes.arrayOf(PropTypes.object)
 }
