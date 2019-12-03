@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-
-import { Container, Paper, Typography } from '@material-ui/core';
+import { Container } from '@material-ui/core';
 import PropTypes from 'prop-types';
 
+import Result from './Result'
 import './Results.css';
 
 // Results is the component containing the search results
@@ -16,17 +16,24 @@ class Results extends Component {
     }
 
     createResults() {
-        <Paper>
-            <Typography component="p">
-                {this.props.results}
-            </Typography>
-        </Paper>
+        alert(this.state.results);
+        let results = [];
+        for (let result in this.state.results) {
+            results.push(
+                // <Result result={result} />
+                // {result}
+            );
+        }
+        console.log(results);
+
+        return results;
     }
 
     render() {
         return (
             <Container>
-                {this.createResults}
+                <Result result={{url: "hiurl", label:"hi"}}/>
+                {/* {this.createResults} */}
             </Container>
         )
     };

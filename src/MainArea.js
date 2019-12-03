@@ -13,7 +13,7 @@ class MainArea extends Component {
         super(props);
 
         this.state = {
-            results: ""
+            results: []
         }
 
         this.reportResults = this.reportResults.bind(this);
